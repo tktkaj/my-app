@@ -1,6 +1,6 @@
 import React, { use, useState } from "react";
 import styled from "styled-components";
-import MiddleBtn from "../../components/button/MiddleBtn";
+import KurlyBtn from "../../components/button/KurlyBtn";
 import Alert from "../../components/dialog/Alert";
 import Confirm from "../../components/dialog/Confirm";
 import CenterPopUp from "../../components/dialog/CenterPopUp";
@@ -76,36 +76,36 @@ function SampleDialog() {
           paddingTop: "60px",
         }}
       >
-        <MiddleBtn
+        <KurlyBtn
           bgColor={"#5f0080"}
           color={"#fff"}
           content={"Alert"}
           onClick={handleShowAlert}
-        ></MiddleBtn>
-        <MiddleBtn
+        ></KurlyBtn>
+        <KurlyBtn
           bgColor={"#5f0080"}
           color={"#fff"}
           content={"Confirm"}
           onClick={handleShowConfirm}
-        ></MiddleBtn>
-        <MiddleBtn
+        ></KurlyBtn>
+        <KurlyBtn
           bgColor={"#5f0080"}
           color={"#fff"}
           content={"Center Pop-up"}
           onClick={handleShowCenter}
-        ></MiddleBtn>
-        <MiddleBtn
+        ></KurlyBtn>
+        <KurlyBtn
           bgColor={"#5f0080"}
           color={"#fff"}
           content={"Full Pop-up"}
           onClick={handleShowFull}
-        ></MiddleBtn>
-        <MiddleBtn
+        ></KurlyBtn>
+        <KurlyBtn
           bgColor={"#5f0080"}
           color={"#fff"}
           content={"Bottom Sheet"}
           onClick={handleShowBottom}
-        ></MiddleBtn>
+        ></KurlyBtn>
       </div>
     </DialogContainer>
   );

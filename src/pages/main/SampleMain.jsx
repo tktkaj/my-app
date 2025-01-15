@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import MiddleBtn from "../../components/button/MiddleBtn";
+import KurlyBtn from "../../components/button/KurlyBtn";
 const BtnContainer = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -18,14 +18,14 @@ const BtnWraaper = styled.div`
 function SampleMain() {
   return (
     <BtnContainer>
-      <BtnWraaper>
+      <KurlyBtn>
         <Link to="/samples/SampleDialog">
-          <MiddleBtn type="button" color="#fff" bgColor="#5f0080" content="GO SampleDialog"></MiddleBtn>
+          <KurlyBtn type="button" color="#fff" bgColor="#5f0080" content="GO SampleDialog"></KurlyBtn>
         </Link>
         <Link to="/samples/SampleComponents">
-          <MiddleBtn type="button" color="#fff" bgColor="#5f0080" content="GO SampleComponents"></MiddleBtn>
+          <KurlyBtn type="button" color="#fff" bgColor="#5f0080" content="GO SampleComponents"></KurlyBtn>
         </Link>
-      </BtnWraaper>
+      </KurlyBtn>
     </BtnContainer>
   );
 }

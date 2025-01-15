@@ -2,7 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const ButtonWrapper = styled.div`
-  width: ${(props) => (props.size == "small" ? "166px" : "249px")};
+  width: ${(props) => {
+    switch(props.size){
+      case "small":
+        return "166px";
+      case "large":
+        return "694px";
+      default:
+        return "249px";
+    }
+  }};
   border: 1px solid #dfe4eb;
   border-radius: 4px;
   overflow: hidden;
@@ -19,13 +28,15 @@ const StyledButton = styled.button`
   align-items: center;
   padding: 0;
   padding-bottom: 6px;
-  font-size: ${(props) => (props.size == "small" ? "1rem" : "1.1rem")};
+  font-size: ${(props) => (props.size === "small" ? "1rem" : "1.1rem")};
+  cursor: pointer;
+
 `;
 
 function GetCartBtn({ size }) {
   return (
-    <ButtonWrapper size={"small"}>
-      <StyledButton>
+    <ButtonWrapper size={size}>
+      <StyledButton size={size}>
         <svg
           width="22"
           height="22"
