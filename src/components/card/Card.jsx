@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import GetCartBtn from "../button/GetCartBtn";
+import GetCartBtn from "../common/button/GetCartBtn";
 import Coupon from "../coupon/Coupon";
 
 const StyledCardDiv = styled.div`

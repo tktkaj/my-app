@@ -1,14 +1,6 @@
 import React from "react";
-import KurlyBtn from "../../components/button/KurlyBtn";
-import GetCartBtn from "../../components/button/GetCartBtn";
 import styled from "styled-components";
-import SmallWhiteBtn from "../../components/button/SmallWhiteBtn";
-import BasicInput from "../../components/input/BasicInput";
-import SearchInput from "../../components/input/SearchInput";
-import Coupon from "../../components/coupon/Coupon";
-import FilterItem from "../../components/filter/FilterItem";
-import Select from "../../components/select/Select";
-import Card from "../../components/card/Card";
+
 
 const StyledUl = styled.ul`
   margin: 0 auto;
@@ -44,7 +36,8 @@ function SampleComponents() {
   };
   return (
     <div style={{ marginBottom: "100px" }}>
-      <StyledUl>
+      컴포넌트 페이지입니다.
+      {/* <StyledUl>
         <h3 style={{ fontWeight: "bold" }}>1. Button</h3>
         <StyledLi>
           <KurlyBtn
@@ -104,7 +97,9 @@ function SampleComponents() {
       <StyledUl>
         <h3 style={{ fontWeight: "bold" }}>3. coupon</h3>
         <StyledLi>
+          <div style={{position:"relative"}}>
           <Coupon content="+최대4만원쿠폰"></Coupon>
+          </div>
         </StyledLi>
       </StyledUl>
       <StyledUl>
@@ -128,7 +123,7 @@ function SampleComponents() {
       <StyledUl>
         <h3 style={{ fontWeight: "bold" }}>6. card</h3>
         <Card products2={products2}></Card>
-      </StyledUl>
+      </StyledUl> */}
     </div>
   );
 }

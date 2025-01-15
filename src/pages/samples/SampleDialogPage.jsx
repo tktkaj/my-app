@@ -1,11 +1,6 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import styled from "styled-components";
-import KurlyBtn from "../../components/button/KurlyBtn";
-import Alert from "../../components/dialog/Alert";
-import Confirm from "../../components/dialog/Confirm";
-import CenterPopUp from "../../components/dialog/CenterPopUp";
-import FullPopUp from "../../components/dialog/FullPopUp";
-import BottomSheet from "../../components/dialog/BottomSheet";
+
 
 const DialogContainer = styled.div`
   position: relative;
@@ -24,6 +19,7 @@ const DialogBackGround = styled.div`
 `;
 
 function SampleDialog() {
+
   let [bgDisplay, setBgDisplay] = useState("none");
   let [alert, setAlert] = useState("none");
   let [confirm, setConfirm] = useState("none");
@@ -51,11 +47,11 @@ function SampleDialog() {
     setBgDisplay("block");
     setCenterPopUp("block");
   };
-  const handleShowFull= () => {
+  const handleShowFull = () => {
     setBgDisplay("block");
     setFullPopUp("block");
   };
-  
+
   const handleShowBottom = () => {
     setBgDisplay("block");
     setBottomSheet("block");
@@ -63,12 +59,22 @@ function SampleDialog() {
 
   return (
     <DialogContainer>
-      <DialogBackGround bgDisplay={bgDisplay}></DialogBackGround>
+      dialog페이지입니다.
+      {/* <DialogBackGround bgDisplay={bgDisplay}></DialogBackGround>
       <Alert display={alert} handleCancle={handleCancelPopup}></Alert>
       <Confirm display={confirm} handleCancle={handleCancelPopup}></Confirm>
-      <CenterPopUp display={centerPopUp} handleCancle={handleCancelPopup}></CenterPopUp>
-      <FullPopUp display={fullPopUp} handleCancle={handleCancelPopup}></FullPopUp>
-      <BottomSheet display={bottomSheet} handleCancle={handleCancelPopup}></BottomSheet>
+      <CenterPopUp
+        display={centerPopUp}
+        handleCancle={handleCancelPopup}
+      ></CenterPopUp>
+      <FullPopUp
+        display={fullPopUp}
+        handleCancle={handleCancelPopup}
+      ></FullPopUp>
+      <BottomSheet
+        display={bottomSheet}
+        handleCancle={handleCancelPopup}
+      ></BottomSheet>
       <div
         style={{
           display: "flex",
@@ -77,36 +83,31 @@ function SampleDialog() {
         }}
       >
         <KurlyBtn
-          bgColor={"#5f0080"}
-          color={"#fff"}
+          bgc="#5f0080"
           content={"Alert"}
           onClick={handleShowAlert}
         ></KurlyBtn>
         <KurlyBtn
-          bgColor={"#5f0080"}
-          color={"#fff"}
+          bgc="#5f0080"
           content={"Confirm"}
           onClick={handleShowConfirm}
         ></KurlyBtn>
         <KurlyBtn
-          bgColor={"#5f0080"}
-          color={"#fff"}
+          bgc="#5f0080"
           content={"Center Pop-up"}
           onClick={handleShowCenter}
         ></KurlyBtn>
         <KurlyBtn
-          bgColor={"#5f0080"}
-          color={"#fff"}
+          bgc="#5f0080"
           content={"Full Pop-up"}
           onClick={handleShowFull}
         ></KurlyBtn>
         <KurlyBtn
-          bgColor={"#5f0080"}
-          color={"#fff"}
+          bgc="#5f0080"
           content={"Bottom Sheet"}
           onClick={handleShowBottom}
         ></KurlyBtn>
-      </div>
+      </div> */}
     </DialogContainer>
   );
 }

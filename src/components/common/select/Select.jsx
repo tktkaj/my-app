@@ -71,12 +71,16 @@ function Select({ products }) {
         </StyledSvg>
       </StyledSelectDiv>
       <StyledProductUl isClick={isClick}>
-        {products.map((product) => (
-          <StyledProductLi>
+        {products.map((product, index) => (
+          <StyledProductLi key={product.name + index}>
             <StyledSpan>{product.name}</StyledSpan>
             <StyldPriceWrapper>
-              <StyledOrigianlPriceDiv>{product.originalPrice}</StyledOrigianlPriceDiv>
-              <StyledDiscountPriceDiv>{product.salePrice}</StyledDiscountPriceDiv>
+              <StyledOrigianlPriceDiv>
+                {product.originalPrice}
+              </StyledOrigianlPriceDiv>
+              <StyledDiscountPriceDiv>
+                {product.salePrice}
+              </StyledDiscountPriceDiv>
             </StyldPriceWrapper>
           </StyledProductLi>
         ))}
