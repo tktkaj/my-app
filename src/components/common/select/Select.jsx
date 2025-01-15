@@ -14,6 +14,7 @@ const StyledSelectDiv = styled.div`
   border: 1px solid #f4f4f4;
 `;
 const StyledProductUl = styled.ul`
+  width: 100%;
   padding: 0;
   position: absolute;
   z-index: 10;
@@ -22,7 +23,6 @@ const StyledProductUl = styled.ul`
 `;
 
 const StyledProductLi = styled.li`
-  width: 100%;
   padding: 16.5px 22px 16.5px 14px;
   font-size: 0.9rem;
   border: 1px solid #f4f4f4;
@@ -51,7 +51,7 @@ const StyledOrigianlPriceDiv = styled.div`
 const StyledDiscountPriceDiv = styled.div`
   font-size: 0.9rem;
 `;
-function Select({ products }) {
+function Select({ products, value }) {
   let [isClick, setIsClick] = useState(false);
   const handleSelectorClick = () => {
     setIsClick(isClick ? false : true);
@@ -59,7 +59,7 @@ function Select({ products }) {
   return (
     <StyledContainerDiv>
       <StyledSelectDiv>
-        상품을 선택해주세요
+        {value}
         <StyledSvg
           focusable="false"
           aria-hidden="true"

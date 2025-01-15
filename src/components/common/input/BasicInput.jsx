@@ -2,26 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const InputOutline = styled.div`
-  width: ${(props) => {
-    switch (props.type) {
-      case "join":
-        return "333px";
-      case "login":
-        return "340px";
-      default:
-        return "333px";
-    }
-  }};
-  height: ${(props) => {
-    switch (props.type) {
-      case "join":
-        return "46px";
-      case "login":
-        return "48px";
-      default:
-        return "46px";
-    }
-  }};
+  width: ${(props) => props.SelectInputSize.width};
+  height: ${(props) => props.SelectInputSize.height};
   border: 1px solid #e2e2e2;
   border-radius: 5px;
   overflow: hidden;
@@ -34,22 +16,24 @@ const Input = styled.input`
   width: 100%;
   height: 100%;
   padding: 0 11px 1px 15px;
-  font-size: ${(props) => {
-    switch (props.type) {
-      case "join":
-        return "1.1rem";
-      case "login":
-        return "1.05rem";
-      default:
-        return "1.1rem";
-    }
-  }};
+  font-size: ${(props) => props.SelectInputSize.fontSize};
 `;
 
-function BasicInput({ placeHolder, type }) {
+function BasicInput({ size, type, placeHolder }) {
+  const inputSize = {
+    lg: { width: "333px", height: "46px", fontSize: "1.1rem" },
+    ml: { width: "340px", height: "48px", fontSize: "1.05rem" },
+  };
+
+  const SelectInputSize = inputSize[size] || inputSize.lg;
   return (
-    <InputOutline type={type}>
-      <Input type={type} placeholder={placeHolder} maxLength="20" />
+    <InputOutline type={type} SelectInputSize={SelectInputSize}>
+      <Input
+        type={type}
+        placeholder={placeHolder}
+        SelectInputSize={SelectInputSize}
+        maxLength="20"
+      />
     </InputOutline>
   );
 }

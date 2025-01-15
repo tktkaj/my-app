@@ -1,27 +1,26 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const Button = styled.button`
   background-color: #fff;
-  color: ${(props) => props.color};
-  border: 1px solid #ababab;
+  color: #333;
+  border: 1px solid #eeeeee;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   width: 138px;
   height: 38px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1.17rem;
   cursor: pointer;
   border-radius: 4px;
-`
+`;
 
-function SmallWhiteBtn({content, onClick}) {
+function SmallWhiteBtn({ value, type, onClick }) {
   return (
-    <Button>
-        {content}
+    <Button type={type} onClick={onClick}>
+      {value}
     </Button>
-  )
+  );
 }
 
-export default SmallWhiteBtn
+export default SmallWhiteBtn;

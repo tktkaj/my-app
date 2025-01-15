@@ -2,21 +2,20 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
-  background-color: ${(props) => props.bg};
-  color: ${(props) => props.fc};
+  background-color: ${(props) => props.selectedColor.bg};
+  color: ${(props) => props.selectedColor.fc};
   border: 1px solid #5f0080;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+  width: ${(props) => props.selectedSize.width};
+  height: ${(props) => props.selectedSize.height};
   font-size: 1.15rem;
   cursor: pointer;
   border-radius: 4px;
 `;
 
-function KurlyBtn({ variant, type, value, size, disable }) {
-
+function KurlyBtn({ variant, type, value, size, onClick }) {
   const form = {
     sm: { width: "240px", height: "56px" },
     ml: { width: "350px", height: "54px" },
@@ -33,12 +32,9 @@ function KurlyBtn({ variant, type, value, size, disable }) {
   return (
     <Button
       type={type}
-      size={form[size]}
-      width={selectedSize.width}
-      height={selectedSize.height}
-      bg={selectedColor.bg}
-      fc={selectedColor.fc}
-      disable={disable}
+      selectedSize={selectedSize}
+      selectedColor={selectedColor}
+      onClick={onClick}
     >
       {value}
     </Button>

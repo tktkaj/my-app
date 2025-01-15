@@ -6,9 +6,11 @@
 }
 
 *{
-  font-size: 13px;
+  font-size: 12px;
   font-family: 'NEXON Lv1 Gothic OTF';
   font-weight: normal;
+  margin: 0;
+  padding: 0;
 }
 a{
   text-decoration: none;
