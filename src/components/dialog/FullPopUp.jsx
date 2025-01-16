@@ -1,29 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import cancel from "../../assets/cancel.png";
+import { closeDialog } from "../../utils/actionDialog";
 
 const AlertContainer = styled.div`
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 0px;
   z-index: 1040;
   width: 100%;
   height: 100vh;
   background-color: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  display: ${(props) => props.display};
+  display: ${(props) => props.show};
 `;
 
 const AlertText = styled.div`
-  position: absolute;
-  z-index: 1050;
-  font-size: 3rem;
+  font-size: 4rem;
   text-align: center;
-  margin-top: 50px;
-  top: 50px;
-  right: 100px;
-  color: #fff;
+  margin-top: 200px;
+  color: #333;
 `;
 
 const AlertBtnWrapper = styled.div`
@@ -43,28 +38,14 @@ const CancelBtn = styled.button`
   cursor: pointer;
 `;
 
-function FullPopUp({ display, handleCancle }) {
+function FullPopUp({ value }) {
+  const [show, setShow] = useState("block");
   return (
-    <AlertContainer display={display}>
-      {/* <img
-        src={fullpopup}
-        alt=""
-        width="98%"
-        height="98%"
-        style={{ position: "relative" }}
-      /> */}
-      <CancelBtn onClick={handleCancle}>
+    <AlertContainer show={show}>
+      <CancelBtn onClick={() => setShow(closeDialog())}>
         <img src={cancel} alt="" width="40px" />
       </CancelBtn>
-      <AlertText>
-        이 창은{" "}
-        <span
-          style={{ fontSize: "3rem", color: "#5f0080", fontWeight: "bold" }}
-        >
-          FullPopUp
-        </span>
-        입니다.
-      </AlertText>
+      <AlertText>{value}</AlertText>
       <AlertBtnWrapper></AlertBtnWrapper>
     </AlertContainer>
   );

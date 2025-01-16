@@ -17,8 +17,16 @@ const StyledP = styled.p`
   color: #fff;
   font-size: 1.07rem;
 `;
-function Coupon({ content, disable }) {
-  return <StyledDiv>{disable && <StyledP>{content}</StyledP>}</StyledDiv>;
+function Coupon({ value, disable }) {
+  return (
+    <div>
+      {!disable && (
+        <StyledDiv>
+          <StyledP>{value || "value"}</StyledP>
+        </StyledDiv>
+      )}
+    </div>
+  );
 }
 
 export default Coupon;

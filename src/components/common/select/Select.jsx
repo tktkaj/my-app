@@ -19,7 +19,7 @@ const StyledProductUl = styled.ul`
   position: absolute;
   z-index: 10;
   background-color: #fff;
-  display: ${(props) => (props.isClick ? "block" : "none")};
+  display: ${(props) => (props.show ? "block" : "none")};
 `;
 
 const StyledProductLi = styled.li`
@@ -52,14 +52,14 @@ const StyledDiscountPriceDiv = styled.div`
   font-size: 0.9rem;
 `;
 function Select({ products, value }) {
-  let [isClick, setIsClick] = useState(false);
+  let [show, setShow] = useState(false);
   const handleSelectorClick = () => {
-    setIsClick(isClick ? false : true);
+    setShow(show ? false : true);
   };
   return (
     <StyledContainerDiv>
       <StyledSelectDiv>
-        {value}
+        {value || "value"}
         <StyledSvg
           focusable="false"
           aria-hidden="true"
@@ -70,20 +70,21 @@ function Select({ products, value }) {
           <path d="M7 10l5 5 5-5z"></path>
         </StyledSvg>
       </StyledSelectDiv>
-      <StyledProductUl isClick={isClick}>
-        {products.map((product, index) => (
-          <StyledProductLi key={product.name + index}>
-            <StyledSpan>{product.name}</StyledSpan>
-            <StyldPriceWrapper>
-              <StyledOrigianlPriceDiv>
-                {product.originalPrice}
-              </StyledOrigianlPriceDiv>
-              <StyledDiscountPriceDiv>
-                {product.salePrice}
-              </StyledDiscountPriceDiv>
-            </StyldPriceWrapper>
-          </StyledProductLi>
-        ))}
+      <StyledProductUl show={show}>
+        {products &&
+          products.map((product, index) => (
+            <StyledProductLi key={product.name + index}>
+              <StyledSpan>{product.name}</StyledSpan>
+              <StyldPriceWrapper>
+                <StyledOrigianlPriceDiv>
+                  {product.originalPrice}
+                </StyledOrigianlPriceDiv>
+                <StyledDiscountPriceDiv>
+                  {product.salePrice}
+                </StyledDiscountPriceDiv>
+              </StyldPriceWrapper>
+            </StyledProductLi>
+          ))}
       </StyledProductUl>
     </StyledContainerDiv>
   );

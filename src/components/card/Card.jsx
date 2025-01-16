@@ -66,11 +66,11 @@ function Card({ products2 }) {
   return (
     <StyledCardDiv>
       <StyledImgDiv>
-        <Coupon content={products2.sale}></Coupon>
+        <Coupon value={products2.sale} disable={products2.disable}></Coupon>
         <StyledImg src={products2.img}></StyledImg>
       </StyledImgDiv>
       <StyledDetailDiv>
-        <GetCartBtn></GetCartBtn>
+        <GetCartBtn type="button" size="ml" value="담기"></GetCartBtn>
         <StyledProductTitle>{products2.title}</StyledProductTitle>
         <StyledPriceSpan>
           <OriginalPriceSpan>{products2.oriPrice}</OriginalPriceSpan>

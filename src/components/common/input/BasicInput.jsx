@@ -19,7 +19,11 @@ const Input = styled.input`
   font-size: ${(props) => props.SelectInputSize.fontSize};
 `;
 
-function BasicInput({ size, type, placeHolder }) {
+/**
+ * name BasicInput
+ * @param onChange
+ */
+function BasicInput({ size, type, placeholder, onChange }) {
   const inputSize = {
     lg: { width: "333px", height: "46px", fontSize: "1.1rem" },
     ml: { width: "340px", height: "48px", fontSize: "1.05rem" },
@@ -27,12 +31,13 @@ function BasicInput({ size, type, placeHolder }) {
 
   const SelectInputSize = inputSize[size] || inputSize.lg;
   return (
-    <InputOutline type={type} SelectInputSize={SelectInputSize}>
+    <InputOutline SelectInputSize={SelectInputSize}>
       <Input
-        type={type}
-        placeholder={placeHolder}
+        placeholder={placeholder || "placeholder"}
         SelectInputSize={SelectInputSize}
         maxLength="20"
+        type={type}
+        onChange={(e) => onChange(e.target.value)}
       />
     </InputOutline>
   );

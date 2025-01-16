@@ -22,16 +22,22 @@ function SampleMain() {
     <BtnContainer>
       <BtnWraaper>
         <KurlyBtn
-          value="hello"
+          value="SampleDialog"
           variant="white"
           size="ml"
           onClick={() => navigate("/samples/SampleDialog")}
         ></KurlyBtn>
         <KurlyBtn
-          value="hello"
+          value="SampleComponents"
           variant="purple"
           size="ml"
           onClick={() => navigate("/samples/SampleComponents")}
+        ></KurlyBtn>
+        <KurlyBtn
+          value="SampleComponents"
+          variant="purple"
+          size="ml"
+          onClick={() => navigate("/test")}
         ></KurlyBtn>
       </BtnWraaper>
     </BtnContainer>
