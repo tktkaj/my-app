@@ -24,6 +24,9 @@ function SampleDialogPage() {
             showPopup("alert", {
               okBtnText: "확인",
               ContentComponent: () => testImg,
+              callBack: () => {
+                makeRequest("/samples/SampleComponents", {});
+              },
             });
           }}
         ></KurlyBtn>
