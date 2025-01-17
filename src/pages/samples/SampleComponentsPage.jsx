@@ -10,10 +10,10 @@ import GetCartBtn from "../../components/common/button/GetCartBtn";
 import Coupon from "../../components/coupon/Coupon";
 import Card from "../../components/card/Card";
 import DialogBtn from "../../components/common/button/DialogBtn";
-import { useBackward } from "../../hooks/useBackward";
+import useMovePage from "../../hooks/useMovePage";
 
 function SampleComponents() {
-  const goback = useBackward();
+  const { goBack } = useMovePage();
 
   const prices = [
     {
@@ -192,9 +192,9 @@ function SampleComponents() {
         <StyledTitle>3. radio</StyledTitle>
         <StyledSubTitle>3.1 active</StyledSubTitle>
         {prices.map((price, index) => (
-          <StyledLi>
+          <StyledLi key={price.productName+index}>
             <Radio
-              key={price.productName + index}
+              id={price.productName + index}
               productName={price.productName}
               ProductCount={price.ProductCount}
               name={price.name}
@@ -237,7 +237,7 @@ function SampleComponents() {
         </StyledLi>
       </StyledUl>
       <StyledUl>
-        <DialogBtn btnText="뒤로가기" onClick={() => goback()}></DialogBtn>
+        <DialogBtn btnText="뒤로가기" onClick={() => goBack()}></DialogBtn>
       </StyledUl>
     </div>
   );

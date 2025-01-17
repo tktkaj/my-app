@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import KurlyBtn from "../../components/common/button/KurlyBtn";
-import useForward from "../../hooks/useForward";
+import useMovePage from "../../hooks/useMovePage";
 
 function SampleMainPage() {
-  const { makeRequest } = useForward();
+  const { makeRequest } = useMovePage();
 
   return (
     <BtnContainer>
@@ -13,7 +13,11 @@ function SampleMainPage() {
           btnText="dialog"
           variant="white"
           size="ml"
-          onClick={() => makeRequest("/samples/SampleDialog", { name: "dkdk" })}
+          onClick={() =>
+            makeRequest("/samples/SampleDialog", {
+              name: "dkdk",
+            })
+          }
         ></KurlyBtn>
         <KurlyBtn
           btnText="component"
