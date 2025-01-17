@@ -30,7 +30,12 @@ const SearchIcon = styled.img`
   width: 35px;
   height: 30px;
 `;
-
+/**
+ * SearchInput 컴포넌트는 검색 입력 필드와 버튼을 렌더링합니다.
+ *
+ * @param {string} placeholder - 입력 필드에 표시될 플레이스홀더 텍스트.
+ * @param {function} onChange - 입력 값이 변경될 때 호출될 함수.
+ */
 function SearchInput({ placeholder, onChange }) {
   return (
     <SearchContainer>

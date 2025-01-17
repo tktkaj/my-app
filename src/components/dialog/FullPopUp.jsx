@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import cancel from "../../assets/cancel.png";
-import { closeDialog } from "../../utils/actionDialog";
 
 const AlertContainer = styled.div`
   position: absolute;
@@ -11,7 +10,6 @@ const AlertContainer = styled.div`
   height: 100vh;
   background-color: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  display: ${(props) => props.show};
 `;
 
 const AlertText = styled.div`
@@ -38,15 +36,17 @@ const CancelBtn = styled.button`
   cursor: pointer;
 `;
 
-function FullPopUp({ value }) {
-  const [show, setShow] = useState("block");
+function FullPopUp({ dialogText, src, onClose }) {
+  const handleConfirm = () => {
+    onClose();
+  };
   return (
-    <AlertContainer show={show}>
-      <CancelBtn onClick={() => setShow(closeDialog())}>
+    <AlertContainer>
+      <CancelBtn onClick={handleConfirm}>
         <img src={cancel} alt="" width="40px" />
       </CancelBtn>
-      <AlertText>{value}</AlertText>
-      <AlertBtnWrapper></AlertBtnWrapper>
+      <AlertText>{dialogText}</AlertText>
+      <AlertBtnWrapper>{src && <img src={src} alt="" />}</AlertBtnWrapper>
     </AlertContainer>
   );
 }

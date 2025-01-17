@@ -20,7 +20,16 @@ const Button = styled.button`
     opacity: 0.4;
   }
 `;
-function DialogBtn({ type, variant, value, onClick }) {
+
+/**
+ * DialogBtn 컴포넌트는 사용자 정의 가능한 버튼을 렌더링합니다.
+ *
+ * @param {string} type - 버튼의 타입 (예: 'button', 'submit').
+ * @param {string} variant - 버튼 스타일 변형 ('purple', 'outlinePurple' 등).
+ * @param {string} btnText - 버튼에 표시될 텍스트.
+ * @param {function} onClick - 버튼 클릭 시 호출될 함수.
+ */
+function DialogBtn({ type, variant, btnText, onClick }) {
   const variantObj = {
     purple: { color: "#fff", backgroundColor: "#5f0080" },
     outlinePurple: { color: "#5f0080", backgroundColor: "#fff" },
@@ -28,7 +37,7 @@ function DialogBtn({ type, variant, value, onClick }) {
   const selectevaraint = variantObj[variant] || variantObj.purple;
   return (
     <Button type={type} selectevaraint={selectevaraint} onClick={onClick}>
-      {value}
+      {btnText}
     </Button>
   );
 }

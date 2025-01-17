@@ -1,8 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import KurlyBtn from "../../components/common/button/KurlyBtn";
-import { useNavigate } from "react-router-dom";
+import useForward from "../../hooks/useForward";
 
+function SampleMainPage() {
+  const { makeRequest } = useForward();
+
+  return (
+    <BtnContainer>
+      <BtnWraaper>
+        <KurlyBtn
+          btnText="dialog"
+          variant="white"
+          size="ml"
+          onClick={() => makeRequest("/samples/SampleDialog", { name: "dkdk" })}
+        ></KurlyBtn>
+        <KurlyBtn
+          btnText="component"
+          variant="purple"
+          size="ml"
+          onClick={() =>
+            makeRequest("/samples/SampleComponents", { name: "dkdk" })
+          }
+        ></KurlyBtn>
+      </BtnWraaper>
+    </BtnContainer>
+  );
+}
 const BtnContainer = styled.div`
   width: 100%;
   margin: 0 auto;
@@ -15,33 +39,4 @@ const BtnWraaper = styled.div`
   margin-top: 350px;
 `;
 
-function SampleMain() {
-  const navigate = useNavigate();
-
-  return (
-    <BtnContainer>
-      <BtnWraaper>
-        <KurlyBtn
-          value="SampleDialog"
-          variant="white"
-          size="ml"
-          onClick={() => navigate("/samples/SampleDialog")}
-        ></KurlyBtn>
-        <KurlyBtn
-          value="SampleComponents"
-          variant="purple"
-          size="ml"
-          onClick={() => navigate("/samples/SampleComponents")}
-        ></KurlyBtn>
-        <KurlyBtn
-          value="SampleComponents"
-          variant="purple"
-          size="ml"
-          onClick={() => navigate("/test")}
-        ></KurlyBtn>
-      </BtnWraaper>
-    </BtnContainer>
-  );
-}
-
-export default SampleMain;
+export default SampleMainPage;

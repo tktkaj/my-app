@@ -9,8 +9,12 @@ import Select from "../../components/common/select/Select";
 import GetCartBtn from "../../components/common/button/GetCartBtn";
 import Coupon from "../../components/coupon/Coupon";
 import Card from "../../components/card/Card";
+import DialogBtn from "../../components/common/button/DialogBtn";
+import { useBackward } from "../../hooks/useBackward";
 
 function SampleComponents() {
+  const goback = useBackward();
+
   const prices = [
     {
       productName: "10,000원~15,000원",
@@ -87,29 +91,32 @@ function SampleComponents() {
   const checkboxValue = (value) => {
     console.log(value);
   };
+  const selectValue = (value) => {
+    console.log(value);
+  };
   return (
     <div style={{ marginBottom: "100px" }}>
       <StyledUl>
         <StyledTitle>1. KurlyBn</StyledTitle>
         <StyledSubTitle>1.1 size</StyledSubTitle>
         <StyledLi>
-          <KurlyBtn type="button" value="sm" size="sm"></KurlyBtn>
+          <KurlyBtn type="button" btnText="sm" size="sm"></KurlyBtn>
         </StyledLi>
         <StyledLi>
-          <KurlyBtn type="button" value="ml" size="ml"></KurlyBtn>
+          <KurlyBtn type="button" btnText="ml" size="ml"></KurlyBtn>
         </StyledLi>
         <StyledLi>
-          <KurlyBtn type="button" value="lg" size="lg"></KurlyBtn>
+          <KurlyBtn type="button" btnText="lg" size="lg"></KurlyBtn>
         </StyledLi>
         <StyledSubTitle>1.2 variant</StyledSubTitle>
         <StyledLi>
-          <KurlyBtn type="button" variant="purple" value="purple"></KurlyBtn>
+          <KurlyBtn type="button" variant="purple" btnText="purple"></KurlyBtn>
         </StyledLi>
         <StyledLi>
           <KurlyBtn
             type="button"
             variant="outlinePurple"
-            value="outlinePurple"
+            btnText="outlinePurple"
           ></KurlyBtn>
         </StyledLi>
       </StyledUl>
@@ -117,13 +124,13 @@ function SampleComponents() {
         <StyledTitle>2. GetCartBtn</StyledTitle>
         <StyledSubTitle>2.1 size</StyledSubTitle>
         <StyledLi>
-          <GetCartBtn type="button" value="sm" size="sm"></GetCartBtn>
+          <GetCartBtn type="button" btnText="sm" size="sm"></GetCartBtn>
         </StyledLi>
         <StyledLi>
-          <GetCartBtn type="button" value="ml" size="ml"></GetCartBtn>
+          <GetCartBtn type="button" btnText="ml" size="ml"></GetCartBtn>
         </StyledLi>
         <StyledLi>
-          <GetCartBtn type="button" value="lg" size="lg"></GetCartBtn>
+          <GetCartBtn type="button" btnText="lg" size="lg"></GetCartBtn>
         </StyledLi>
       </StyledUl>
       <StyledUl>
@@ -214,7 +221,7 @@ function SampleComponents() {
       <StyledUl>
         <StyledTitle>5. select</StyledTitle>
         <StyledLi>
-          <Select value="value" products={products}></Select>
+          <Select value="value" products={products} onClick={selectValue}></Select>
         </StyledLi>
       </StyledUl>
       <StyledUl>
@@ -228,6 +235,9 @@ function SampleComponents() {
         <StyledLi>
           <Card products2={products2}></Card>
         </StyledLi>
+      </StyledUl>
+      <StyledUl>
+        <DialogBtn btnText="뒤로가기" onClick={() => goback()}></DialogBtn>
       </StyledUl>
     </div>
   );

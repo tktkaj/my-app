@@ -20,8 +20,12 @@ const Input = styled.input`
 `;
 
 /**
- * name BasicInput
- * @param onChange
+ * BasicInput 컴포넌트는 기본적인 입력 필드를 렌더링합니다.
+ *
+ * @param {string} size - 입력 필드의 크기 ('lg', 'ml' 등).
+ * @param {string} type - 입력 필드의 타입 (예: 'text', 'password').
+ * @param {string} placeholder - 입력 필드에 표시될 플레이스홀더 텍스트.
+ * @param {function} onChange - 입력 값이 변경될 때 호출될 함수.
  */
 function BasicInput({ size, type, placeholder, onChange }) {
   const inputSize = {

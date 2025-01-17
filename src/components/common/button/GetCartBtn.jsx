@@ -22,8 +22,15 @@ const StyledButton = styled.button`
   font-size: ${(props) => props.selectfontsize};
   cursor: pointer;
 `;
-
-function GetCartBtn({ size, value, type, onClick }) {
+/**
+ * GetCartBtn 컴포넌트는 장바구니에 추가하는 버튼을 렌더링합니다.
+ *
+ * @param {string} size - 버튼의 크기 ('sm', 'ml', 'lg').
+ * @param {string} btnText - 버튼에 표시될 텍스트.
+ * @param {string} type - 버튼의 타입 (예: 'button', 'submit').
+ * @param {function} onClick - 버튼 클릭 시 호출될 함수.
+ */
+function GetCartBtn({ size, btnText, type, onClick }) {
   const sizeObj = {
     sm: { width: "166px", fontSize: "1rem" },
     ml: { width: "249px", fontSize: "1.1rem" },
@@ -55,7 +62,7 @@ function GetCartBtn({ size, value, type, onClick }) {
             stroke-linejoin="round"
           ></path>
         </svg>
-        {value}
+        {btnText}
       </StyledButton>
     </ButtonWrapper>
   );

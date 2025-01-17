@@ -15,6 +15,15 @@ const Button = styled.button`
   border-radius: 4px;
 `;
 
+/**
+ * KurlyBtn 컴포넌트는 사용자 정의 가능한 버튼을 렌더링합니다.
+ *
+ * @param {string} variant - 버튼 스타일 변형 ('purple', 'outlinePurple' 등).
+ * @param {string} type - 버튼의 타입 (예: 'button', 'submit').
+ * @param {string} btnText - 버튼에 표시될 텍스트.
+ * @param {string} size - 버튼의 크기 ('sm', 'ml', 'lg').
+ * @param {function} onClick - 버튼 클릭 시 호출될 함수.
+ */
 function KurlyBtn({ variant, type, btnText, size, onClick }) {
   const form = {
     sm: { width: "240px", height: "56px" },

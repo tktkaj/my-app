@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React  from "react";
 import styled from "styled-components";
 import cancel from "../../assets/cancel.png";
-import { closeDialog } from "../../utils/actionDialog";
 
 const DialogBackGround = styled.div`
   position: absolute;
@@ -11,7 +10,6 @@ const DialogBackGround = styled.div`
   z-index: 1030;
   background-color: black;
   opacity: 70%;
-  display: ${(props) => props.show};
 `;
 
 const AlertContainer = styled.div`
@@ -49,20 +47,18 @@ const CancelBtn = styled.button`
   cursor: pointer;
 `;
 
-function BottomSheet({ value }) {
-  const [show, setShow] = useState("block");
+function BottomSheet({ dialogText, onClose, src }) {
+  const handleConfirm = () => {
+    onClose();
+  };
   return (
-    <DialogBackGround show={show}>
+    <DialogBackGround>
       <AlertContainer>
-        <CancelBtn
-          onClick={() => {
-            setShow(closeDialog());
-          }}
-        >
+        <CancelBtn onClick={handleConfirm}>
           <img src={cancel} alt="" width="40px" />
         </CancelBtn>
-        <AlertText>{value}</AlertText>
-        <AlertBtnWrapper></AlertBtnWrapper>
+        <AlertText>{dialogText}</AlertText>
+        <AlertBtnWrapper>{src && <img src={src} alt="" />}</AlertBtnWrapper>
       </AlertContainer>
     </DialogBackGround>
   );

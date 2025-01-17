@@ -1,29 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import KurlyBtn from "../../components/common/button/KurlyBtn";
-import Alert from "../../components/dialog/Alert";
-import BottomSheet from "../../components/dialog/BottomSheet";
-import CenterPopUp from "../../components/dialog/CenterPopUp";
-import popup from "../../assets/popup.jpg";
-import Confirm from "../../components/dialog/Confirm";
-import FullPopUp from "../../components/dialog/FullPopUp";
-import { openAlert } from "../../utils/actionDialog";
+import DialogBtn from "../../components/common/button/DialogBtn";
+import { useBackward } from "../../hooks/useBackward";
+import { usePopup } from "../../utils/PopupContext";
 
-function SampleDialog() {
+function SampleDialogPage() {
+  const { showPopup } = usePopup();
+  const goback = useBackward();
   return (
     <DialogContainer>
       <div>
         <KurlyBtn
           type="button"
           btnText="Alert"
-          onClick={() => openAlert(Alert, "알람창입니다.")}
+          onClick={() => {
+            showPopup("alert", { dialogText: "알림입니다.", okBtnText:"확인" });
+          }}
         ></KurlyBtn>
-        <KurlyBtn type="button" btnText="Confirm"></KurlyBtn>
-        <KurlyBtn type="button" btnText="Bottom-sheet"></KurlyBtn>
-        <KurlyBtn type="button" btnText="Center-PopUp"></KurlyBtn>
-        <KurlyBtn type="button" btnText="Full-PopUp"></KurlyBtn>
-        {openAlert(BottomSheet, "알람창입니다.")}
+        <KurlyBtn
+          type="button"
+          btnText="Confirm"
+          onClick={() => {
+            showPopup("confirm", { dialogText: "알림입니다.",okBtnText:"확인", cancelBtnText:"취소" });
+          }}
+        ></KurlyBtn>
+        <KurlyBtn type="button" btnText="Bottom-sheet"
+         onClick={() => {
+          showPopup("bottomSheet", { dialogText: "알림입니다." });
+        }}></KurlyBtn>
+        <KurlyBtn type="button" btnText="Center-PopUp"
+         onClick={() => {
+          showPopup("centerPopup", { dialogText: "알림입니다." });
+        }}></KurlyBtn>
+        <KurlyBtn type="button" btnText="Full-PopUp"
+         onClick={() => {
+          showPopup("fullPopup", { dialogText: "알림입니다." });
+        }}></KurlyBtn>
       </div>
+      <DialogBtn btnText="뒤로가기" onClick={() => goback()}></DialogBtn>
     </DialogContainer>
   );
 }
@@ -33,4 +48,4 @@ const DialogContainer = styled.div`
   height: 100vh;
 `;
 
-export default SampleDialog;
+export default SampleDialogPage;

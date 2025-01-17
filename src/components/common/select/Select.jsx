@@ -1,6 +1,60 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+function Select({ products, initialValue, onClick }) {
+  const [show, setShow] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(
+    initialValue || "선택하세요"
+  );
+
+  const handleSelectorClick = () => {
+    setShow(!show);
+  };
+
+  const handleProductSelect = (product) => {
+    setSelectedValue(product.name);
+    onClick(product.name);
+    setShow(false);
+  };
+
+  return (
+    <StyledContainerDiv>
+      <StyledSelectDiv onClick={handleSelectorClick}>
+        {selectedValue}
+        <StyledSvg
+          focusable="false"
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          data-testid="ArrowDropDownIcon"
+        >
+          <path d="M7 10l5 5 5-5z"></path>
+        </StyledSvg>
+      </StyledSelectDiv>
+      <StyledProductUl show={show}>
+        {products &&
+          products.map((product, index) => (
+            <StyledProductLi
+              key={product.name + index}
+              onClick={() => {
+                handleProductSelect(product);
+              }}
+            >
+              <StyledSpan>{product.name}</StyledSpan>
+              <StyldPriceWrapper>
+                <StyledOrigianlPriceDiv>
+                  {product.originalPrice}
+                </StyledOrigianlPriceDiv>
+                <StyledDiscountPriceDiv>
+                  {product.salePrice}
+                </StyledDiscountPriceDiv>
+              </StyldPriceWrapper>
+            </StyledProductLi>
+          ))}
+      </StyledProductUl>
+    </StyledContainerDiv>
+  );
+}
+
 const StyledContainerDiv = styled.div`
   width: 432px;
   border: 1px solid #f4f4f4;
@@ -51,43 +105,4 @@ const StyledOrigianlPriceDiv = styled.div`
 const StyledDiscountPriceDiv = styled.div`
   font-size: 0.9rem;
 `;
-function Select({ products, value }) {
-  let [show, setShow] = useState(false);
-  const handleSelectorClick = () => {
-    setShow(show ? false : true);
-  };
-  return (
-    <StyledContainerDiv>
-      <StyledSelectDiv>
-        {value || "value"}
-        <StyledSvg
-          focusable="false"
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          data-testid="ArrowDropDownIcon"
-          onClick={handleSelectorClick}
-        >
-          <path d="M7 10l5 5 5-5z"></path>
-        </StyledSvg>
-      </StyledSelectDiv>
-      <StyledProductUl show={show}>
-        {products &&
-          products.map((product, index) => (
-            <StyledProductLi key={product.name + index}>
-              <StyledSpan>{product.name}</StyledSpan>
-              <StyldPriceWrapper>
-                <StyledOrigianlPriceDiv>
-                  {product.originalPrice}
-                </StyledOrigianlPriceDiv>
-                <StyledDiscountPriceDiv>
-                  {product.salePrice}
-                </StyledDiscountPriceDiv>
-              </StyldPriceWrapper>
-            </StyledProductLi>
-          ))}
-      </StyledProductUl>
-    </StyledContainerDiv>
-  );
-}
-
 export default Select;

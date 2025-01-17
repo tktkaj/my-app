@@ -14,11 +14,17 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 4px;
 `;
-
-function SmallWhiteBtn({ value, type, onClick }) {
+/**
+ * SmallWhiteBtn 컴포넌트는 작은 흰색 버튼을 렌더링합니다.
+ *
+ * @param {string} btnText - 버튼에 표시될 텍스트.
+ * @param {string} type - 버튼의 타입 (예: 'button', 'submit').
+ * @param {function} onClick - 버튼 클릭 시 호출될 함수.
+ */
+function SmallWhiteBtn({ btnText, type, onClick }) {
   return (
     <Button type={type} onClick={onClick}>
-      {value}
+      {btnText}
     </Button>
   );
 }

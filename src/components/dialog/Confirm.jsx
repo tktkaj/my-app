@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import DialogBtn from "../common/button/DialogBtn";
-import { closeDialog } from "../../utils/actionDialog";
 
 const DialogBackGround = styled.div`
   position: absolute;
@@ -42,26 +41,24 @@ const AlertBtnWrapper = styled.div`
   gap: 50px;
 `;
 
-function Confirm({ value }) {
-  const [show, setShow] = useState("block");
+function Confirm({ dialogText, okBtnText, cancelBtnText, onClose }) {
+  const handleConfirm = () => {
+    onClose();
+  };
   return (
-    <DialogBackGround show={show}>
+    <DialogBackGround>
       <AlertContainer>
-        <AlertText>{value}</AlertText>
+        <AlertText>{dialogText}</AlertText>
         <AlertBtnWrapper>
           <DialogBtn
             variant="purple"
-            value="check"
-            onClick={() => {
-              setShow(closeDialog());
-            }}
+            btnText={okBtnText}
+            onClick={handleConfirm}
           ></DialogBtn>
           <DialogBtn
             variant="outlinePurple"
-            value="check"
-            onClick={() => {
-              setShow(closeDialog());
-            }}
+            btnText={cancelBtnText}
+            onClick={handleConfirm}
           ></DialogBtn>
         </AlertBtnWrapper>
       </AlertContainer>

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import cancel from "../../assets/cancel.png";
-import { closeDialog } from "../../utils/actionDialog";
 
 const DialogBackGround = styled.div`
   position: absolute;
@@ -11,7 +10,6 @@ const DialogBackGround = styled.div`
   z-index: 1030;
   background-color: black;
   opacity: 70%;
-  display: ${(props) => props.show};
 `;
 
 const AlertContainer = styled.div`
@@ -54,23 +52,21 @@ const CancelBtn = styled.button`
   cursor: pointer;
 `;
 
-function CenterPopUp({ value, src }) {
-  const [show, setShow] = useState("block");
+function CenterPopUp({ dialogText, src, onClose }) {
+  const handleConfirm = () => {
+    onClose();
+  };
   return (
-    <DialogBackGround show={show}>
+    <DialogBackGround>
       <AlertContainer>
         <AlertText>
-          <CancelBtn
-            onClick={() => {
-              setShow(closeDialog());
-            }}
-          >
+          <CancelBtn onClick={handleConfirm}>
             <img src={cancel} width="100%" alt="" />
           </CancelBtn>
-          {value}
+          {dialogText}
         </AlertText>
         <AlertBtnWrapper>
-          <img src={src} width="100%" height="100%" alt="" />
+          {src && <img src={src} width="100%" height="100%" alt="" />}
         </AlertBtnWrapper>
       </AlertContainer>
     </DialogBackGround>

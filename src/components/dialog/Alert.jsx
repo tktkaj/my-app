@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import DialogBtn from "../common/button/DialogBtn";
-import { closeDialog } from "../../utils/actionDialog";
 
 const DialogBackGround = styled.div`
   position: absolute;
@@ -11,13 +10,13 @@ const DialogBackGround = styled.div`
   z-index: 1030;
   background-color: black;
   opacity: 70%;
-  display: ${(props) => props.show};
 `;
 
 const AlertContainer = styled.div`
   position: absolute;
   top: 50%;
-  right: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 360px;
   height: 200px;
   background-color: #fff;
@@ -37,20 +36,19 @@ const AlertBtnWrapper = styled.div`
   justify-content: center;
   margin-top: 50px;
 `;
-function Alert({ value }) {
-  const [show, setShow] = useState("block");
-
+function Alert({ dialogText, okBtnText, onClose }) {
+  const handleConfirm = () => {
+    onClose();
+  };
   return (
-    <DialogBackGround show={show}>
+    <DialogBackGround>
       <AlertContainer>
-        <AlertText>{value}</AlertText>
+        <AlertText>{dialogText}</AlertText>
         <AlertBtnWrapper>
           <DialogBtn
             variant="purple"
-            value="check"
-            onClick={() => {
-              setShow(closeDialog());
-            }}
+            btnText={okBtnText}
+            onClick={handleConfirm}
           ></DialogBtn>
         </AlertBtnWrapper>
       </AlertContainer>
