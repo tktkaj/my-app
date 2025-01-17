@@ -2,6 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import cancel from "../../assets/cancel.png";
 
+function BottomSheet({ onClose, callBack, ContentComponent }) {
+  const handleConfirm = () => {
+    onClose(callBack);
+  };
+  return (
+    <DialogBackGround>
+      <AlertContainer>
+        <CancelBtn onClick={handleConfirm}>
+          <img src={cancel} alt="" width="40px" />
+        </CancelBtn>
+        {ContentComponent && <ContentComponent />}
+        <AlertBtnWrapper></AlertBtnWrapper>
+      </AlertContainer>
+    </DialogBackGround>
+  );
+}
+
 const DialogBackGround = styled.div`
   position: absolute;
   top: 0px;
@@ -45,22 +62,5 @@ const CancelBtn = styled.button`
   right: 25px;
   cursor: pointer;
 `;
-
-function BottomSheet({ dialogText, onClose, callBack, ContentComponent }) {
-  const handleConfirm = () => {
-    onClose(callBack);
-  };
-  return (
-    <DialogBackGround>
-      <AlertContainer>
-        <CancelBtn onClick={handleConfirm}>
-          <img src={cancel} alt="" width="40px" />
-        </CancelBtn>
-        {ContentComponent && <ContentComponent />}
-        <AlertBtnWrapper></AlertBtnWrapper>
-      </AlertContainer>
-    </DialogBackGround>
-  );
-}
 
 export default BottomSheet;

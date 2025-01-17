@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import pop from "../../assets/popup.jpg";
 
 import styled from "styled-components";
 import KurlyBtn from "../../components/common/button/KurlyBtn";
@@ -7,6 +8,8 @@ import useMovePage from "../../hooks/useMovePage";
 import { usePopup } from "../../utils/PopupContext";
 
 function SampleDialogPage() {
+  const test = <h1>test</h1>;
+  const testImg = <img src={pop} width="100px" height="100px"></img>;
   const [input, setInput] = useState("hello");
   const { showPopup } = usePopup();
   const { goBack, makeRequest } = useMovePage();
@@ -19,8 +22,8 @@ function SampleDialogPage() {
           btnText="Alert"
           onClick={() => {
             showPopup("alert", {
-              dialogText: `현재 문자열 ${input}`,
               okBtnText: "확인",
+              ContentComponent: () => testImg,
             });
           }}
         ></KurlyBtn>
@@ -56,7 +59,10 @@ function SampleDialogPage() {
           type="button"
           btnText="Full-PopUp"
           onClick={() => {
-            showPopup("fullPopup", { dialogText: "알림입니다." });
+            showPopup("fullPopup", {
+              dialogText: "알림입니다.",
+              ContentComponent: () => testImg,
+            });
           }}
         ></KurlyBtn>
       </div>

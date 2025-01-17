@@ -2,6 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import cancel from "../../assets/cancel.png";
 
+function FullPopUp({ ContentComponent, onClose, callBack }) {
+  const handleConfirm = () => {
+    onClose(callBack);
+  };
+  return (
+    <AlertContainer>
+      <CancelBtn onClick={handleConfirm}>
+        <img src={cancel} alt="" width="40px" />
+      </CancelBtn>
+      <AlertBtnWrapper>
+        {ContentComponent && <ContentComponent />}
+      </AlertBtnWrapper>
+    </AlertContainer>
+  );
+}
 const AlertContainer = styled.div`
   position: absolute;
   bottom: 0px;
@@ -35,21 +50,5 @@ const CancelBtn = styled.button`
   right: 25px;
   cursor: pointer;
 `;
-
-function FullPopUp({ ContentComponent, onClose, callBack }) {
-  const handleConfirm = () => {
-    onClose(callBack);
-  };
-  return (
-    <AlertContainer>
-      <CancelBtn onClick={handleConfirm}>
-        <img src={cancel} alt="" width="40px" />
-      </CancelBtn>
-      <AlertBtnWrapper>
-        {ContentComponent && <ContentComponent />}
-      </AlertBtnWrapper>
-    </AlertContainer>
-  );
-}
 
 export default FullPopUp;
