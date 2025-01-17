@@ -19,18 +19,19 @@ const StyledCountLabel = styled.label`
   font-size: 0.95rem;
   color: #ccc;
 `;
-function Radio({ productName, ProductCount, name, value, onClick, checked }) {
+function Radio({ productName, ProductCount, name, value, onClick, checked, id }) {
   return (
     <StyledDiv>
       <StyledA>
         <StyledInput
+        id={id}
           type="radio"
           name={name || "name"}
           value={value || "value"}
-          onClick={() => onClick(value) || ""}
+          onClick={() => onClick && onClick(value)}
           checked={checked}
         ></StyledInput>
-        <StyledNameLabel>{productName || "productName"}</StyledNameLabel>
+        <StyledNameLabel htmlFor={id}>{productName || "productName"}</StyledNameLabel>
         <StyledCountLabel>{ProductCount || "productCount"}</StyledCountLabel>
       </StyledA>
     </StyledDiv>

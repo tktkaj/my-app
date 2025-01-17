@@ -2,14 +2,31 @@ import React from "react";
 import styled from "styled-components";
 import cancel from "../../assets/cancel.png";
 
+function CenterPopUp({ onClose, callBack, ContentComponent }) {
+  const handleConfirm = () => {
+    onClose(callBack);
+  };
+  return (
+    <DialogBackGround>
+      <AlertContainer>
+        <AlertText>
+          <CancelBtn onClick={handleConfirm}>
+            <img src={cancel} width="100%" alt="" />
+          </CancelBtn>
+          {ContentComponent && <ContentComponent />}
+        </AlertText>
+      </AlertContainer>
+    </DialogBackGround>
+  );
+}
+
 const DialogBackGround = styled.div`
   position: absolute;
   bottom: 0px;
   width: 100%;
   height: 100vh;
   z-index: 1030;
-  background-color: black;
-  opacity: 70%;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const AlertContainer = styled.div`
@@ -18,7 +35,7 @@ const AlertContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1040;
-  width: 20%;
+  width: 80%;
   height: 60%;
   background-color: #fff;
   border-radius: 30px;
@@ -51,26 +68,5 @@ const CancelBtn = styled.button`
   right: 5px;
   cursor: pointer;
 `;
-
-function CenterPopUp({ dialogText, src, onClose }) {
-  const handleConfirm = () => {
-    onClose();
-  };
-  return (
-    <DialogBackGround>
-      <AlertContainer>
-        <AlertText>
-          <CancelBtn onClick={handleConfirm}>
-            <img src={cancel} width="100%" alt="" />
-          </CancelBtn>
-          {dialogText}
-        </AlertText>
-        <AlertBtnWrapper>
-          {src && <img src={src} width="100%" height="100%" alt="" />}
-        </AlertBtnWrapper>
-      </AlertContainer>
-    </DialogBackGround>
-  );
-}
 
 export default CenterPopUp;

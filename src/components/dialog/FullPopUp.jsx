@@ -36,17 +36,18 @@ const CancelBtn = styled.button`
   cursor: pointer;
 `;
 
-function FullPopUp({ dialogText, src, onClose }) {
+function FullPopUp({ ContentComponent, onClose, callBack }) {
   const handleConfirm = () => {
-    onClose();
+    onClose(callBack);
   };
   return (
     <AlertContainer>
       <CancelBtn onClick={handleConfirm}>
         <img src={cancel} alt="" width="40px" />
       </CancelBtn>
-      <AlertText>{dialogText}</AlertText>
-      <AlertBtnWrapper>{src && <img src={src} alt="" />}</AlertBtnWrapper>
+      <AlertBtnWrapper>
+        {ContentComponent && <ContentComponent />}
+      </AlertBtnWrapper>
     </AlertContainer>
   );
 }

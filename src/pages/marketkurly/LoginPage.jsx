@@ -43,6 +43,7 @@ const SeparatorSpan = styled.span`
 `;
 
 function LoginPage() {
+  // 한화면에서 필요한 기능은 한화면에서만 상태도 마찬가지
   return (
     <>
     <CouponBanner/>

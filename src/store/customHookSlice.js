@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const customHookSlice = createSlice({
-  name: "customHook",
+  name: "pageHook",
   initialState,
   reducers: {
     addRequest: (state, action) => {

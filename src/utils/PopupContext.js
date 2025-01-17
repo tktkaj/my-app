@@ -33,7 +33,7 @@ export const PopupProvider = ({ children }) => {
         return;
     }
 
-    const popupId = Date.now();
+    const popupId = Date.now(); // 고유 ID 생성
 
     const closePopup = () => {
       setPopupStack((prevStack) =>
@@ -46,7 +46,10 @@ export const PopupProvider = ({ children }) => {
       {
         id: popupId,
         PopupComponent,
-        props: { ...props, onClose: closePopup },
+        props: {
+          ...props,
+          onClose: (callBack) => closePopup(callBack), // ID 전달
+        },
       },
     ]);
   };

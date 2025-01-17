@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import styled from "styled-components";
 import cancel from "../../assets/cancel.png";
 
@@ -8,8 +8,7 @@ const DialogBackGround = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 1030;
-  background-color: black;
-  opacity: 70%;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const AlertContainer = styled.div`
@@ -47,9 +46,9 @@ const CancelBtn = styled.button`
   cursor: pointer;
 `;
 
-function BottomSheet({ dialogText, onClose, src }) {
+function BottomSheet({ dialogText, onClose, callBack, ContentComponent }) {
   const handleConfirm = () => {
-    onClose();
+    onClose(callBack);
   };
   return (
     <DialogBackGround>
@@ -57,8 +56,8 @@ function BottomSheet({ dialogText, onClose, src }) {
         <CancelBtn onClick={handleConfirm}>
           <img src={cancel} alt="" width="40px" />
         </CancelBtn>
-        <AlertText>{dialogText}</AlertText>
-        <AlertBtnWrapper>{src && <img src={src} alt="" />}</AlertBtnWrapper>
+        {ContentComponent && <ContentComponent />}
+        <AlertBtnWrapper></AlertBtnWrapper>
       </AlertContainer>
     </DialogBackGround>
   );

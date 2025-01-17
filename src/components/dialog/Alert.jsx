@@ -2,14 +2,32 @@ import React from "react";
 import styled from "styled-components";
 import DialogBtn from "../common/button/DialogBtn";
 
+function Alert({ ContentComponent, okBtnText, callBack, onClose }) {
+  const handleConfirm = () => {
+    onClose(callBack);
+  };
+  return (
+    <DialogBackGround>
+      <AlertContainer>
+        {ContentComponent && <ContentComponent />}
+        <AlertBtnWrapper>
+          <DialogBtn
+            variant="purple"
+            btnText={okBtnText}
+            onClick={handleConfirm}
+          ></DialogBtn>
+        </AlertBtnWrapper>
+      </AlertContainer>
+    </DialogBackGround>
+  );
+}
 const DialogBackGround = styled.div`
   position: absolute;
   top: 0px;
   width: 100%;
   height: 100vh;
   z-index: 1030;
-  background-color: black;
-  opacity: 70%;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const AlertContainer = styled.div`
@@ -36,24 +54,4 @@ const AlertBtnWrapper = styled.div`
   justify-content: center;
   margin-top: 50px;
 `;
-function Alert({ dialogText, okBtnText, onClose }) {
-  const handleConfirm = () => {
-    onClose();
-  };
-  return (
-    <DialogBackGround>
-      <AlertContainer>
-        <AlertText>{dialogText}</AlertText>
-        <AlertBtnWrapper>
-          <DialogBtn
-            variant="purple"
-            btnText={okBtnText}
-            onClick={handleConfirm}
-          ></DialogBtn>
-        </AlertBtnWrapper>
-      </AlertContainer>
-    </DialogBackGround>
-  );
-}
-
 export default Alert;

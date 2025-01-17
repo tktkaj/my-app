@@ -8,9 +8,7 @@ const DialogBackGround = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 1030;
-  background-color: black;
-  opacity: 70%;
-  display: ${(props) => props.show};
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const AlertContainer = styled.div`
@@ -41,14 +39,20 @@ const AlertBtnWrapper = styled.div`
   gap: 50px;
 `;
 
-function Confirm({ dialogText, okBtnText, cancelBtnText, onClose }) {
+function Confirm({
+  ContentComponent,
+  okBtnText,
+  cancelBtnText,
+  onClose,
+  callBack,
+}) {
   const handleConfirm = () => {
-    onClose();
+    onClose(callBack);
   };
   return (
     <DialogBackGround>
       <AlertContainer>
-        <AlertText>{dialogText}</AlertText>
+        {ContentComponent && <ContentComponent />}
         <AlertBtnWrapper>
           <DialogBtn
             variant="purple"
