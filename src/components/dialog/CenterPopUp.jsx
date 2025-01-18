@@ -51,13 +51,6 @@ const AlertText = styled.div`
   margin-top: 50px;
 `;
 
-const AlertBtnWrapper = styled.div`
-  display: flex;
-  height: 70%;
-  justify-content: center;
-  margin-top: 50px;
-  gap: 50px;
-`;
 const CancelBtn = styled.button`
   position: absolute;
   background-color: rgba(0, 0, 0, 0);

@@ -41,11 +41,6 @@ const AlertContainer = styled.div`
   display: block;
 `;
 
-const AlertText = styled.div`
-  font-size: 2rem;
-  text-align: center;
-  margin-top: 50px;
-`;
 
 const AlertBtnWrapper = styled.div`
   display: flex;

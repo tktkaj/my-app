@@ -23,9 +23,13 @@ function SampleMainPage() {
           btnText="component"
           variant="purple"
           size="ml"
-          onClick={() =>
-            makeRequest("/samples/SampleComponents", { name: "dkdk" })
-          }
+          onClick={() => makeRequest("/samples/SampleComponents", {})}
+        ></KurlyBtn>
+        <KurlyBtn
+          btnText="go to marketKurly"
+          variant="purple"
+          size="ml"
+          onClick={() => makeRequest("/FG/FGMK/FGMKHM/FGMKHM001", {})}
         ></KurlyBtn>
       </BtnWraaper>
     </BtnContainer>

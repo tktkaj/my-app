@@ -8,7 +8,7 @@ import Radio from "../../components/common/radio/Radio";
 import Select from "../../components/common/select/Select";
 import GetCartBtn from "../../components/common/button/GetCartBtn";
 import Coupon from "../../components/coupon/Coupon";
-import Card from "../../components/card/Card";
+import Card from "../../components/card/Card"
 import DialogBtn from "../../components/common/button/DialogBtn";
 import useMovePage from "../../hooks/useMovePage";
 

@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import pop from "../../assets/popup.jpg";
 
 import styled from "styled-components";
@@ -8,7 +8,6 @@ import useMovePage from "../../hooks/useMovePage";
 import { usePopup } from "../../utils/PopupContext";
 
 function SampleDialogPage() {
-  const test = <h1>test</h1>;
   const testImg = <img src={pop} width="100px" height="100px"></img>;
   const [input, setInput] = useState("hello");
   const { showPopup } = usePopup();
@@ -47,7 +46,6 @@ function SampleDialogPage() {
           onClick={() => {
             showPopup("bottomSheet", {
               dialogText: "알림입니다.",
-              ContentComponent: () => <h3>hello</h3>,
             });
           }}
         ></KurlyBtn>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import SmallWhiteBtn from "../components/button/SmallWhiteBtn";
+import SmallWhiteBtn from "../../components/common/button/SmallWhiteBtn"
+
 
 const FooterContainer = styled.div`
   width: 1040px;
@@ -102,7 +103,7 @@ function Footer() {
           </strong>
           <InqueryContainer>
             <InqueryWrapper>
-              <SmallWhiteBtn content={"카카오톡 문의"}></SmallWhiteBtn>
+              <SmallWhiteBtn btnText={"카카오톡 문의"}></SmallWhiteBtn>
               <InqeuryTextBox>
                 월~토요일
                 <svg
@@ -146,7 +147,7 @@ function Footer() {
               </InqeuryTextBox>
             </InqueryWrapper>
             <InqueryWrapper>
-              <SmallWhiteBtn content={"1:1문의"}></SmallWhiteBtn>
+              <SmallWhiteBtn btnText={"1:1문의"}></SmallWhiteBtn>
               <InqeuryTextBox>
                 365일
                 <br />
@@ -154,7 +155,7 @@ function Footer() {
               </InqeuryTextBox>
             </InqueryWrapper>
             <InqueryWrapper>
-              <SmallWhiteBtn content={"대량주문 문의"}></SmallWhiteBtn>
+              <SmallWhiteBtn btnText={"대량주문 문의"}></SmallWhiteBtn>
               <InqeuryTextBox>
                 월~금요일
                 <svg

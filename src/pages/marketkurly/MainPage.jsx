@@ -1,9 +1,13 @@
-import React from 'react'
-
+import React from "react";
+import styled from "styled-components";
+import Header from "../../components/layouts/header/Header";
 function MainPage() {
   return (
-    <div>MainPage</div>
-  )
+    <MainPageLayout>
+      <Header />
+    </MainPageLayout>
+  );
 }
 
-export default MainPage
+const MainPageLayout = styled.div``;
+export default MainPage;

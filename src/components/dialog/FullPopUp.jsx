@@ -27,12 +27,6 @@ const AlertContainer = styled.div`
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
 
-const AlertText = styled.div`
-  font-size: 4rem;
-  text-align: center;
-  margin-top: 200px;
-  color: #333;
-`;
 
 const AlertBtnWrapper = styled.div`
   display: flex;

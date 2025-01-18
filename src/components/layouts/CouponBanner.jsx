@@ -10,13 +10,12 @@ const CouponWrapper = styled.header`
 
 const CouponTitle = styled.h1`
   margin: 0;
-  /* font-size: 1.05rem; */
 `;
 
-function CouponBanner() {
+function CouponBanner({children}) {
   return (
     <CouponWrapper>
-    <CouponTitle>지금 가입하고, <b style={{fontWeight:'bold'}}>50% 할인 쿠폰</b> 받아가세요!</CouponTitle>
+    <CouponTitle>{children}</CouponTitle>
   </CouponWrapper>
   )
 }
