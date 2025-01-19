@@ -113,7 +113,6 @@ function Footer() {
                   viewBox="0 0 1 10"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="css-w0fx7a eam2qm50"
                 >
                   <line
                     x1="0.5"
@@ -133,7 +132,6 @@ function Footer() {
                   viewBox="0 0 1 10"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="css-w0fx7a eam2qm50"
                 >
                   <line
                     x1="0.5"
@@ -165,7 +163,6 @@ function Footer() {
                   viewBox="0 0 1 10"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="css-w0fx7a eam2qm50"
                 >
                   <line
                     x1="0.5"
@@ -185,7 +182,6 @@ function Footer() {
                   viewBox="0 0 1 10"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  class="css-w0fx7a eam2qm50"
                 >
                   <line
                     x1="0.5"
@@ -226,7 +222,6 @@ function Footer() {
               viewBox="0 0 1 10"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class="css-w0fx7a eam2qm50"
             >
               <line
                 x1="0.5"
@@ -249,7 +244,6 @@ function Footer() {
               viewBox="0 0 1 10"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class="css-w0fx7a eam2qm50"
             >
               <line
                 x1="0.5"

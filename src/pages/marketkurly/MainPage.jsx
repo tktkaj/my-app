@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../components/layouts/header/Header";
+import MainBannerCarousel from "../../components/marketkurly/main/MainBannerCarousel";
 function MainPage() {
   return (
     <MainPageLayout>
-      <Header />
+
     </MainPageLayout>
   );
 }

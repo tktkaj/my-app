@@ -35,7 +35,7 @@ function CheckBox({ name, count, onClick, active }) {
     <StyledLi
       onClick={() => {
         handleIsChecked();
-        onClick(name);
+        if (onClick) onClick();
       }}
     >
       <StyledA href="#;">

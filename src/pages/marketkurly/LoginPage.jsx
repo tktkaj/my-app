@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Header from "../../components/layouts/header/Header";
 import LoginForm from "../../components/marketkurly/login/LoginForm";
-import Footer from "../../components/layouts/Footer";
 function LoginPage() {
   const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
@@ -24,18 +22,14 @@ function LoginPage() {
 
   return (
     <LoginPageLayout>
-      <Header />
       <LoginSection>
         <LoginTitle>로그인</LoginTitle>
         <LoginForm
-          userId={userId}
-          userPw={userPw}
           onChangeUserId={handleSetUserId}
           onChangeUserPw={handleSetUserPw}
           onClick={handleUserLogin}
         />
       </LoginSection>
-      <Footer />
     </LoginPageLayout>
   );
 }

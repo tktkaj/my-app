@@ -1,5 +1,14 @@
-import React from 'react'
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+
+function CouponBanner() {
+  const couponContent = null;
+  return (
+    <CouponWrapper>
+      {couponContent && <CouponTitle>{couponContent}</CouponTitle>}
+    </CouponWrapper>
+  );
+}
 
 const CouponWrapper = styled.header`
   background-color: #5f0080;
@@ -12,12 +21,4 @@ const CouponTitle = styled.h1`
   margin: 0;
 `;
 
-function CouponBanner({children}) {
-  return (
-    <CouponWrapper>
-    <CouponTitle>{children}</CouponTitle>
-  </CouponWrapper>
-  )
-}
-
-export default CouponBanner
+export default CouponBanner;

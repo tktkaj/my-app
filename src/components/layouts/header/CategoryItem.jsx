@@ -10,6 +10,7 @@ function CategoryItem({ categoryName, onClick }) {
 }
 
 const CategoryItemBox = styled.li`
+  cursor: pointer;
   display: flex;
   align-items: center;
   padding: 1px;

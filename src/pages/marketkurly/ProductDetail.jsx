@@ -1,9 +1,7 @@
-import React from 'react'
-
+import React from "react";
+import styled from "styled-components";
 function ProductDetail() {
-  return (
-    <div>ProductDetail</div>
-  )
+  return <ProductDetailLayout>ProductDetail</ProductDetailLayout>;
 }
-
-export default ProductDetail
+const ProductDetailLayout = styled.div``;
+export default ProductDetail;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import BrandSlector from "./BrandSlector";
+import BrandSelector from "../../layouts/header/BrandSlector";
 import useMovePage from "../../../hooks/useMovePage";
 
 function BrandNavigator() {
@@ -32,11 +32,11 @@ function BrandNavigator() {
       </LogoBox>
       <BrandSelectorBox>
         {brands.map((brand, index) => (
-          <BrandSlector
+          <BrandSelector
             key={brand.name}
             btnText={brand.name}
             onClick={() => handleBrandClick(index)}
-            active={activeIndex === index ? true : false}
+            $active={activeIndex === index} // 여기를 $active로 변경
           />
         ))}
       </BrandSelectorBox>

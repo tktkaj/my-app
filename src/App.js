@@ -7,7 +7,9 @@ import MainPage from "./pages/marketkurly/MainPage";
 import LoginPage from "./pages/marketkurly/LoginPage";
 import NewProduct from "./pages/marketkurly/NewProduct";
 import ProductDetail from "./pages/marketkurly/ProductDetail";
-
+import Header from "./components/layouts/header/Header";
+import Footer from "./components/layouts/Footer";
+import StickHeader from "./components/layouts/stickyheader/StickyHeader";
 function App() {
   const routers = [
     {
@@ -48,6 +50,8 @@ function App() {
   return (
     <BrowserRouter>
       <PopupProvider>
+        <Header />
+        {/* <StickHeader /> */}
         <Routes>
           {routers.map((route, index) => (
             <Route
@@ -58,6 +62,7 @@ function App() {
           ))}
         </Routes>
       </PopupProvider>
+      <Footer />
     </BrowserRouter>
   );
 }
