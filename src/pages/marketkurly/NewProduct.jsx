@@ -3,7 +3,13 @@ import styled from "styled-components";
 import ProductCategory from "../../components/marketkurly/product/ProductCategory";
 import DetailFilter from "../../components/marketkurly/product/DetailFiter";
 import ProductList from "../../components/marketkurly/product/ProductList";
+import { useSelector } from "react-redux";
+import useMovePage from "../../hooks/useMovePage";
+
 function NewProduct() {
+  const user = useSelector((state) => state.userInfo.id);
+  const { makeRequest } = useMovePage();
+
   const [totalCount, setTotalcount] = useState(0);
   const [category, setCategory] = useState("");
   const [detailFilter, setDetailFilter] = useState([]);
@@ -81,8 +87,11 @@ function NewProduct() {
   ];
 
   useEffect(() => {
+    if (!user) makeRequest("/FG/FGMK/FGMKLO/FGMKLO002", {});
     setProducts(testData);
   }, []);
+
+  if (!user) return null;
   return (
     <NewProductLayout>
       <ProductCategory setCategory={setCategory} />

@@ -9,10 +9,24 @@ import { usePopup } from "../../utils/PopupContext";
 
 function SampleDialogPage() {
   const testImg = <img src={pop} width="100px" height="100px"></img>;
-  const [input, setInput] = useState("hello");
+  const [input, setInput] = useState("0");
   const { showPopup } = usePopup();
   const { goBack, makeRequest } = useMovePage();
 
+  const customInput = (
+    <div>
+      <div style={{fontSize:"2rem"}}>현재 값: {input}</div>
+    </div>
+  );
+  const dialogInput = (
+    <input
+      style={{ width: "300px", height: "50px", fontSize: "2rem" }}
+      placeholder="값입력"
+      onChange={(e) => {
+        setInput(e.target.value);
+      }}
+    ></input>
+  );
   return (
     <DialogContainer>
       <div>
@@ -22,10 +36,7 @@ function SampleDialogPage() {
           onClick={() => {
             showPopup("alert", {
               okBtnText: "확인",
-              ContentComponent: () => testImg,
-              callBack: () => {
-                makeRequest("/samples/SampleComponents", {});
-              },
+              ContentComponent: () => dialogInput,
             });
           }}
         ></KurlyBtn>
@@ -61,13 +72,12 @@ function SampleDialogPage() {
           btnText="Full-PopUp"
           onClick={() => {
             showPopup("fullPopup", {
-              dialogText: "알림입니다.",
               ContentComponent: () => testImg,
             });
           }}
         ></KurlyBtn>
       </div>
-      <h1 style={{ fontSize: "3rem" }}>{input}</h1>
+      {customInput}
       <DialogBtn btnText="뒤로가기" onClick={() => goBack()}></DialogBtn>
     </DialogContainer>
   );

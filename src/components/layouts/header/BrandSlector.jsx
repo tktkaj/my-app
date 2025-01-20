@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-function BrandSlector({ url, btnText, onClick, active }) {
+function BrandSlector({ url, btnText, onClick, $active }) {
   return (
     <BrandSelectorButton
       href={url}
@@ -8,7 +8,7 @@ function BrandSlector({ url, btnText, onClick, active }) {
         e.preventDefault();
         if (onClick) onClick();
       }}
-      active={active}
+      active={$active}
     >
       {btnText}
     </BrandSelectorButton>

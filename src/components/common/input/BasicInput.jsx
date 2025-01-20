@@ -11,7 +11,7 @@ import styled from "styled-components";
  */
 function BasicInput({ size, type, placeholder, onChange, value }) {
   const inputSize = {
-    lg: { width: "333px", height: "46px", fontSize: "1.1rem" },
+    lg: { width: "350px", height: "46px", fontSize: "1.1rem" },
     ml: { width: "340px", height: "48px", fontSize: "1.05rem" },
   };
 
@@ -21,7 +21,7 @@ function BasicInput({ size, type, placeholder, onChange, value }) {
     <InputOutline $selectInputSize={SelectInputSize}>
       <Input
         placeholder={placeholder || "placeholder"}
-        $selectInputSize={SelectInputSize} 
+        $selectInputSize={SelectInputSize}
         maxLength="20"
         type={type}
         onChange={(e) => onChange(e.target.value)}
@@ -32,8 +32,8 @@ function BasicInput({ size, type, placeholder, onChange, value }) {
 }
 
 const InputOutline = styled.div`
-  width: ${(props) => props.$selectInputSize.width}; 
-  height: ${(props) => props.$selectInputSize.height}; 
+  width: ${(props) => props.$selectInputSize.width};
+  height: ${(props) => props.$selectInputSize.height};
   border: 1px solid #e2e2e2;
   border-radius: 5px;
   overflow: hidden;
